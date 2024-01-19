@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SistemaDeTarefas.Models;
+using SistemaDeTarefas.Repositorios.Interfaces;
 
 namespace SistemaDeTarefas.Controllers
 {
@@ -8,10 +9,17 @@ namespace SistemaDeTarefas.Controllers
     [ApiController]
     public class UsuarioController : ControllerBase
     {
-        [HttpGet]
-        public ActionResult<List<UsuarioModel>> BuscarTodosUsuários()
+        private readonly IUsuarioRepositorio _usuarioRepositorio;
+        public UsuarioController(IUsuarioRepositorio usuarioRepositorio)
         {
-            return Ok();
+                _usuarioRepositorio = usuarioRepositorio;
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<List<UsuarioModel>>> BuscarTodosUsuários()
+        {
+            List<UsuarioModel> usuarios = await _usuarioRepositorio.BuscarTodosUsuarios();
+            return Ok(usuarios);
         }
     }
 }
