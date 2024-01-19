@@ -46,9 +46,9 @@ namespace SistemaDeTarefas.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<UsuarioModel>> Apagar(int id)
+        public async Task<ActionResult<TarefaModel>> Apagar(int id)
         {
-            bool apagado = await _usuarioRepositorio.Apagar(id);
+            bool apagado = await _tarefaRepositorio.Apagar(id);
             return Ok(apagado);
         }
 
