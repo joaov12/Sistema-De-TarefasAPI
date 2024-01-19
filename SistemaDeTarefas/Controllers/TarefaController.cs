@@ -23,10 +23,10 @@ namespace SistemaDeTarefas.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<UsuarioModel>> BuscarPorId(int id)
+        public async Task<ActionResult<TarefaModel>> BuscarPorId(int id)
         {
-            UsuarioModel usuario = await _usuarioRepositorio.BuscarPorId(id);
-            return Ok(usuario);
+            TarefaModel tarefa = await _tarefaRepositorio.BuscarPorId(id);
+            return Ok(tarefa);
         }
 
         [HttpPost]
