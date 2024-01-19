@@ -45,8 +45,8 @@ namespace SistemaDeTarefas.Controllers
             return Ok(usuario);
         }
 
-        [HttpPut("{id}")]
-        public async Task<ActionResult<UsuarioModel>> Apagar([FromBody] int id)
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<UsuarioModel>> Apagar(int id)
         {
             bool apagado = await _usuarioRepositorio.Apagar(id);
             return Ok(apagado);
