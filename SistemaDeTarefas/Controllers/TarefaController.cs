@@ -38,11 +38,11 @@ namespace SistemaDeTarefas.Controllers
 
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<UsuarioModel>> Editar([FromBody] UsuarioModel usuarioModel, int id)
+        public async Task<ActionResult<TarefaModel>> Editar([FromBody] TarefaModel tarefaModel, int id)
         {
-            usuarioModel.Id = id;
-            UsuarioModel usuario = await _usuarioRepositorio.Editar(usuarioModel, id);
-            return Ok(usuario);
+            tarefaModel.Id = id;
+            TarefaModel tarefa = await _tarefaRepositorio.Editar(tarefaModel, id);
+            return Ok(tarefa);
         }
 
         [HttpDelete("{id}")]
