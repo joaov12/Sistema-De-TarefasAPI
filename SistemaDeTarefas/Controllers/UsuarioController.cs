@@ -36,5 +36,14 @@ namespace SistemaDeTarefas.Controllers
             return Ok(usuario);
         }
 
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult<UsuarioModel>> Editar([FromBody] UsuarioModel usuarioModel, int id)
+        {
+            usuarioModel.Id = id;
+            UsuarioModel usuario = await _usuarioRepositorio.Editar(usuarioModel, id);
+            return Ok(usuario);
+        }
+
     }
 }
