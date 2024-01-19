@@ -29,5 +29,12 @@ namespace SistemaDeTarefas.Controllers
             return Ok(usuario);
         }
 
+        [HttpPost]
+        public async Task<ActionResult<UsuarioModel>> Cadastrar([FromBody] UsuarioModel usuarioModel)
+        {
+            UsuarioModel usuario = await _usuarioRepositorio.Adicionar(usuarioModel);
+            return Ok(usuario);
+        }
+
     }
 }
