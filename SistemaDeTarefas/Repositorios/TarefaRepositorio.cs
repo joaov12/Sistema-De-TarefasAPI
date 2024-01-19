@@ -62,7 +62,7 @@ namespace SistemaDeTarefas.Repositorios
                 throw new Exception($"Tarefa com o ID: {id} não foi encontrado no banco de dados!");
             }
 
-            _dbContext.Usuarios.Remove(tarefaPorId);
+            _dbContext.Tarefas.Remove(tarefaPorId);
             await _dbContext.SaveChangesAsync();
             return true;
         }
