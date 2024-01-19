@@ -30,10 +30,10 @@ namespace SistemaDeTarefas.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<UsuarioModel>> Cadastrar([FromBody] UsuarioModel usuarioModel)
+        public async Task<ActionResult<TarefaModel>> Cadastrar([FromBody] TarefaModel tarefaModel)
         {
-            UsuarioModel usuario = await _usuarioRepositorio.Adicionar(usuarioModel);
-            return Ok(usuario);
+            TarefaModel tarefa = await _tarefaRepositorio.Adicionar(tarefaModel);
+            return Ok(tarefa);
         }
 
 
