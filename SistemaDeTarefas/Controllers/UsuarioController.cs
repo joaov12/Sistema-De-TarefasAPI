@@ -21,5 +21,13 @@ namespace SistemaDeTarefas.Controllers
             List<UsuarioModel> usuarios = await _usuarioRepositorio.BuscarTodosUsuarios();
             return Ok(usuarios);
         }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<UsuarioModel>> BuscarPorId(int id)
+        {
+            UsuarioModel usuario = await _usuarioRepositorio.BuscarPorId(id);
+            return Ok(usuario);
+        }
+
     }
 }
