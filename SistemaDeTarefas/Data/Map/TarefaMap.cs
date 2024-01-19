@@ -15,7 +15,7 @@ namespace SistemaDeTarefas.Data.Map
             builder.Property(x => x.Status).IsRequired();
             builder.Property(x => x.UsuarioId);
 
-
+            builder.HasOne(x => x.Usuario);
         }
     }
 }
